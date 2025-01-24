@@ -88,6 +88,34 @@ namespace ProverkaPlat
             }
             textBox2.BackColor = Color.OrangeRed;
         }
+
+
+        
+        private void textBox3_MouseDoubleClick(object sender, MouseEventArgs e)
+        {
+            //снимаем галки со всех чек боксов
+            foreach (Control cBox in tabControl1.TabPages[2].Controls)
+            {
+                if (cBox is CheckBox)
+                {
+                    ((CheckBox)cBox).Checked = false;
+                }
+            }
+
+        }
+
+
+        //Для месяца
+        private void checkBox25_CheckedChanged(object sender, EventArgs e)
+        {
+            bool allChecked = tabControl1.TabPages[2].Controls.OfType<CheckBox>().All(c => c.Checked);
+            if (allChecked)
+            {
+                textBox3.BackColor = Color.Chartreuse;
+                return;
+            }
+            textBox3.BackColor = Color.OrangeRed;
+        }
     }
    }
 
